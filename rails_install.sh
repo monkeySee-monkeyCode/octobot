@@ -1,6 +1,6 @@
 #!/bin/bash
 #run me with this
-#bash < <(curl -sL  https://github.com/monkeySee-monkeyCode/octobot/blob/master/rails_install.sh)
+#bash < <(curl -sL  https://raw.github.com/monkeySee-monkeyCode/octobot/blob/master/rails_install.sh)
 
 set -e
 
@@ -17,7 +17,8 @@ echo "Installs ImageMagick for image processing -=SUDO=-"
 sudo apt-get install imagemagick --fix-missing
 
 echo "Installs RVM (Ruby Version Manager)"
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+#gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
 
@@ -46,9 +47,6 @@ echo -e "\n- - - - - -\n"
 echo "Insallation possibly successful"
 
 source ~/.rvm/scripts/rvm 
-cd ~
-rails new canary
-cd /canary
-bundle install
-rails server
+
+
 
