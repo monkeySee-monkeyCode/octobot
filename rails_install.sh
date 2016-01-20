@@ -1,4 +1,6 @@
 #!/bin/bash
+#run me with this
+#bash < <(curl -sL  https://github.com/monkeySee-monkeyCode/octobot/blob/master/rails_install.sh)
 
 set -e
 
