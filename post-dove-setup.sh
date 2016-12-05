@@ -57,7 +57,7 @@ sudo touch TrustedHosts
 sudo chown -R opendkim:opendkim /etc/opendkim
 sudo mkdir -p /var/spool/postfix/opendkim
 sudo chown opendkim:root /var/spool/postfix/opendkim
-sudo usermod -G opendkim postfix
+#sudo usermod -G opendkim postfix
 
 
 #bash < <(curl -sL  https://raw.github.com/monkeySee-monkeyCode/octospoon/reconfig.sh)
