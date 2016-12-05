@@ -57,9 +57,6 @@ sudo mkdir /var/spool/postfix/opendkim
 sudo chown opendkim:root /var/spool/postfix/opendkim
 sudo usermod -G opendkim postfix
 
-cd ~
-sudo mkdir octobotics
-cd octobotics
 
 
 
