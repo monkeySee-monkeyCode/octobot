@@ -15,28 +15,28 @@ sudo aptitude update
 sudo aptitude upgrade
 
 
-ehco "installing spamassassin mail filter -=SUDO=-"
+echo "installing spamassassin mail filter -=SUDO=-"
 
 aptitude install spamass-milter pyzor razor libmail-dkim-perl spamassassin sa-compile spamd
 adduser --shell /bin/false --home /var/lib/spamassassin --disabled-password --disabled-login --gecos "" spamd
 usermod -a -G spamd spamass-milter
-mkdir /var/spool/postfix/spamassassin
-chown spamd:root /var/spool/postfix/spamassassin/
+sudo mkdir -p /var/spool/postfix/spamassassin
+sudo chown spamd:root /var/spool/postfix/spamassassin/
 sa-update
-chown -R spamd:spamd /var/lib/spamassassin
-mkdir /var/lib/spamassassin/.spamassassin
-chown spamd:spamd /var/lib/spamassassin/.spamassassin
+sudo chown -R spamd:spamd /var/lib/spamassassin
+sudo mkdir -p /var/lib/spamassassin/.spamassassin
+sudo chown spamd:spamd /var/lib/spamassassin/.spamassassin
 usermod -a -G spamd spamass-milter
-mkdir /var/lib/spamassassin/.razor
-mkdir /var/lib/spamassassin/.pyzor
-mkdir /var/lib/spamassassin/.spamassassin
+mkdir -p /var/lib/spamassassin/.razor
+mkdir -p /var/lib/spamassassin/.pyzor
+mkdir -p /var/lib/spamassassin/.spamassassin
 pyzor --homedir /var/lib/spamassassin/.pyzor discover
 razor-admin -home=/var/lib/spamassassin/.razor -register
 razor-admin -home=/var/lib/spamassassin/.razor -create
 razor-admin -home=/var/lib/spamassassin/.razor -discover
 chown -R spamd:spamd /var/lib/spamassassin
-mkdir /var/mail/vmail/sieve-before
-mkdir /var/mail/vmail/sieve-after
+mkdir -p /var/mail/vmail/sieve-before
+mkdir -p /var/mail/vmail/sieve-after
 chown -R vmail:vmail /var/mail/vmail/sieve-before
 chown -R vmail:vmail /var/mail/vmail/sieve-after
 
@@ -45,7 +45,7 @@ chown -R vmail:vmail /var/mail/vmail/sieve-after
 echo "installing OpenDKIM"
 
 sudo aptitude install opendkim opendkim-tools
-sudo mkdir /etc/opendkim
+sudo mkdir -p /etc/opendkim
 sudo chown opendkim:opendkim /etc/opendkim
 cd /etc/opendkim
 echo "generating DKIM"
@@ -55,13 +55,13 @@ sudo touch KeyTable
 sudo touch SigningTable
 sudo touch TrustedHosts
 sudo chown -R opendkim:opendkim /etc/opendkim
-sudo mkdir /var/spool/postfix/opendkim
+sudo mkdir -p /var/spool/postfix/opendkim
 sudo chown opendkim:root /var/spool/postfix/opendkim
 sudo usermod -G opendkim postfix
 
 
-bash < <(curl -sL  https://raw.github.com/monkeySee-monkeyCode/octospoon/reconfig.sh)
+#bash < <(curl -sL  https://raw.github.com/monkeySee-monkeyCode/octospoon/reconfig.sh)
 
-bash < <(curl -sL  https://raw.github.com/monkeySee-monkeyCode/octobospoon/aliasing.sh)
+#bash < <(curl -sL  https://raw.github.com/monkeySee-monkeyCode/octobospoon/aliasing.sh)
 
 
