@@ -1,0 +1,11 @@
+
+
+echo "installing aptitude package manager -=SUDO=-"
+sudo apt-get install aptitude
+
+echo "installing postfix/dovecot mail stack -=SUDO=-"
+
+sudo aptitude mail-delivery-stack
+
+ehco "installing spamassassin mail filter -=SUDO=-"
+
