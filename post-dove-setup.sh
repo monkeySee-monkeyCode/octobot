@@ -1,3 +1,5 @@
+# run me
+#bash < <(curl -sL  https://raw.github.com/monkeySee-monkeyCode/octobot/post-dove-setup.sh)
 
 
 echo "installing aptitude package manager -=SUDO=-"
@@ -58,7 +60,8 @@ sudo chown opendkim:root /var/spool/postfix/opendkim
 sudo usermod -G opendkim postfix
 
 
+bash < <(curl -sL  https://raw.github.com/monkeySee-monkeyCode/octospoon/reconfig.sh)
 
-
+bash < <(curl -sL  https://raw.github.com/monkeySee-monkeyCode/octobospoon/aliasing.sh)
 
 
